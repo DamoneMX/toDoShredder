@@ -1,4 +1,6 @@
 ToDoShredder::Application.routes.draw do
+  resources :users
+
   resources :tests
 
   # The priority is based upon order of creation:
