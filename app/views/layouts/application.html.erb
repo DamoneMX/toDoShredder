@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	<% if controller.action_name == "home" %>
+	 <% if signed_in? %>
 		<div class="navbar navbar-fixed-top navbar-inverse" role="navigation" >
 	      <div class="container">
 	        <div class="navbar-header">
@@ -22,17 +22,24 @@
 	        </div>
 	        <div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#">Home</a></li>
-	            <li><a href="#about">About</a></li>
-	            <li><a href="#contact">Contact</a></li>
+	            <li class="active"><a href="#">To-Do's</a></li>
+	            <li><a href="#about">Shredder</a></li>
+	            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 	          </ul>
 	        </div><!-- /.nav-collapse -->
 	      </div><!-- /.container -->
 	    </div><!-- /.navbar -->
 	<% end %>
 	
-	<div style="margin-top:50px;">
-	<%= yield %>
+	<div style="margin-top:70px;">
+	
+		<div class="container">
+			<p id="notice">
+				<%= flash %>
+			</p>
+		</div>	
+			
+		<%= yield %>
 	</div>
 	
 </body>

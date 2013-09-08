@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   
   def prePersist
     self.email = email.downcase
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine::DEFAULT_COST
-    self.password = BCrypt::Password.create(password, cost: cost)
   end  
     
 end

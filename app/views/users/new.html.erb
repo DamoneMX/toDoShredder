@@ -1,5 +1,32 @@
-<h1>New user</h1>
+<div class="container">
+	<h1>Register for To-do shredder</h1>
 
-<%= render 'form' %>
+	 <%= form_for(@user) do |f| %>
+	  <ul>
+	    <% @user.errors.full_messages.each do |msg| %>
+	      <li>* <%= msg %></li>
+	    <% end %>
+	  </ul>
+	<div class="form-group">
+      <%= f.label :firstName %>
+      <%= f.text_field :firstName %>
+    </div>
+    <div class="form-group">  
+      <%= f.label :lastName %>
+      <%= f.text_field :lastName %>
+	</div>
+	<div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+	</div>
+	<div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+	</div>
 
-<%= link_to 'Back', users_path %>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+   	 <% end %>
+	
+</div> <!-- /container -->
+
+
