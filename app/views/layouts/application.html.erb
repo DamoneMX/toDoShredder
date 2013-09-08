@@ -18,7 +18,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <a class="navbar-brand" href="#">Project name</a>
+	          <a class="navbar-brand" href="#">To-Do Shredder</a>
 	        </div>
 	        <div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
@@ -34,12 +34,16 @@
 	<div style="margin-top:70px;">
 	
 		<div class="container">
-			<p id="notice">
-				<%= flash %>
-			</p>
+			<% if flash[:alert] %>
+			    <p class="flash-error"><%= flash[:alert] %></p>
+			  <% end %>
+			  <% if flash[:notice] %>
+			    <p class="flash-notice"><%= flash[:notice] %></p>
+			  <% end %>
 		</div>	
-			
-		<%= yield %>
+		<div class="container">
+			<%= yield %>
+		</div>
 	</div>
 	
 </body>

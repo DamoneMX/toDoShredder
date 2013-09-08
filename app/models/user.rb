@@ -1,6 +1,7 @@
 gem 'bcrypt-ruby'
 require 'bcrypt'
 class User < ActiveRecord::Base
+  has_many :tasks, dependent: :destroy
   attr_accessible :email, :firstName, :lastName, :password
   
   validates :firstName, presence: true,  length: { maximum: 40 }

@@ -1,5 +1,7 @@
 ToDoShredder::Application.routes.draw do
   
+  resources :tasks
+
   #match "/register", to: 'users#new'
   root :to => 'sessions#new'
   match "/home", to: 'static_pages#home'
@@ -11,6 +13,7 @@ ToDoShredder::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match "/tasks",   to: 'task#index'
 
   resources :users
 
