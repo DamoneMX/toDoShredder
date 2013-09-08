@@ -2,3 +2,4 @@
 
 Uses:
 Rspec
+bcrypt

@@ -1,8 +1,12 @@
 ToDoShredder::Application.routes.draw do
   
-  get "static_pages/home"
+  #match "/register", to: 'users#new'
+  match "/home", to: 'static_pages#home'
+  match "/about", to: 'static_pages#about'
 
   get "static_pages/about"
+
+  
 
   resources :users
 
