@@ -1,21 +1,27 @@
-
-<div class="container">
-  <div class="span6 offset3">
-  	<h1 class="form-signin-heading">To-do Shredder</h1>
-    <%= form_for(:session, url: sessions_path) do |f| %>
-
-	<div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+<div class="jumbotron well well-lg">
+	<div class="container">
+	  <div class="span6 offset3">
+	  	<h1 class="form-signin-heading">
+	  		<span class="glyphicon glyphicon-fire"></span> To-Do Shredder
+	  	</h1>
+	  	<br />
+	
+		<%= simple_form_for(:session, url: sessions_path) do |f| %>
+		<div class="form-group">
+	      <%= f.label :email %>
+	      <%= f.text_field :email %>
+		</div>
+		<div class="form-group">
+	      <%= f.label :password %>
+	      <%= f.password_field :password %>
+		</div>
+			
+			<div class="form-actions">
+	      		<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+	      	</div>
+	    <% end %>
+		<br />
+	    <p>Register for To-Do shredder <%= link_to "now!", signup_path %></p>
+	  </div>
 	</div>
-	<div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-	</div>
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-	<br />
-    <p>Register for To-Do shredder <%= link_to "now!", signup_path %></p>
-  </div>
 </div>
-

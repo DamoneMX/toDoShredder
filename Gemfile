@@ -7,6 +7,7 @@ gem 'rails', '3.2.7'
 
 gem 'sqlite3'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails'
