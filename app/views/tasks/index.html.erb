@@ -15,17 +15,17 @@
 		<% end %>
 		
 		<% @tasks.each do |task| %>
-		  <tr>
+		  <tr id="task_row_<%= task.id %>">
 		    <td><%= task.name %></td>
 		    <td><%= task.notes %></td>
-		    <td><%= task.user.loginTime %></td>
+		    <td><%= task.updated_at %></td>
 		    <td>
 		    	<div class="btn-toolbar">
 	  				<div class="btn-group">
 			    	<%= link_to edit_task_path(task) do %>
 						<span class="btn btn-default glyphicon glyphicon-edit tooltips" data-container="body" data-placement="bottom" data-title="Edit Task" > </span>
 					<% end %>
-					<%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
+					<%= link_to task, method: :delete,  data: { confirm: 'Are you sure?' }, :remote=>true do %>
 						<span class="btn btn-default glyphicon glyphicon-remove-sign tooltips" data-container="body" data-placement="bottom" data-title="Delete Task" > </span>
 					<% end %>
 					<%= link_to task do %>
@@ -53,7 +53,6 @@
 
 	<%= link_to 'Destroy', active_task_path(@tasks[0]), :method => :get, :remote=>true, :class=>'delete_post', :dataType => 'script' %>
 	
-	<td><%= link_to 'Destroy', @tasks[0], :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'deleste_post' %></td> 
 
  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
