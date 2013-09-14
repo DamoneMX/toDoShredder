@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     #@tasks = Task.all
     @user = current_user
     @tasks = @user.tasks
+    @displayShredder = true
+    
+    @hours = (Time.now - @user.loginTime)
+    #if @hours > 2
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,4 +88,16 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /tasks/1/active
+  def active
+    @tasks = Task.find_all_by_status(true)
+    
+    #render '_active'    
+    respond_to do |format|
+      format.html { render '_active'    }
+      format.js
+    end
+  end
+  
 end

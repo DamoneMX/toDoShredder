@@ -10,11 +10,15 @@
 		    <th>Action</th>
 		  </tr>
 		
+		<% if @hours < 2 %>
+			<p>Display hours</p>
+		<% end %>
+		
 		<% @tasks.each do |task| %>
 		  <tr>
 		    <td><%= task.name %></td>
 		    <td><%= task.notes %></td>
-		    <td></td>
+		    <td><%= task.user.loginTime %></td>
 		    <td>
 		    	<div class="btn-toolbar">
 	  				<div class="btn-group">
@@ -45,6 +49,26 @@
 		<% end %>
 		</div>
 	</div>
-
-	
 </div>
+
+	<%= link_to 'Destroy', active_task_path(@tasks[0]), :method => :get, :remote=>true, :class=>'delete_post', :dataType => 'script' %>
+	
+	<td><%= link_to 'Destroy', @tasks[0], :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'deleste_post' %></td> 
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Burn pending tasks</h4>
+        </div>
+        <div class="modal-body" id="modal-content">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
