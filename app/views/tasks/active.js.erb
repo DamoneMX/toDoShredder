@@ -1,4 +1,4 @@
 $(document).ready(function() {
-	$("#modal-content").html("<table> <tr> <th>Task Name</th> <th>Description</th></tr>"+
+	$("#modal-content").html("<table class='table table-hover'> <tr> <th>Task Name</th> <th>Description</th></tr>"+
 		"<% @tasks.each do |task| %> <tr><td>  <%= task.name %> </td> <td>  <%= task.notes %> </td> </tr><% end %></table>");
 });

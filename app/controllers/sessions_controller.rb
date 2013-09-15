@@ -10,6 +10,15 @@ class SessionsController < ApplicationController
       sign_in user
       beginningTime = Time.new(Time.now.year, Time.now.month, Time.now.day, 0, 0, 0)
       endTime = Time.new(Time.now.year, Time.now.month, Time.now.day, 23, 59, 59)
+      if user.loginTime.nil?
+        user.loginTime = Time.now
+        
+        task = Hash.new
+        task["name"] = "Your First Task"
+        task["notes"] = "Welcome to To-Do Shredder, this is your first To-Do"
+        user.tasks.build(task)
+        user.save
+      end
       if user.loginTime <= beginningTime || user.loginTime >= endTime
         user.loginTime = Time.now
         user.save

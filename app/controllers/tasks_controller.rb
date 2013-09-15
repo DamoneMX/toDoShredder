@@ -104,7 +104,8 @@ class TasksController < ApplicationController
   
   # GET /tasks/1/active
   def active
-    @tasks = Task.find_all_by_status(true)
+    #find all by status and from this user
+    @tasks = Task.findActiveTasksForUser(current_user)
     
     #render '_active'    
     respond_to do |format|

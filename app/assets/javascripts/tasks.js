@@ -11,3 +11,8 @@ $(document).ready(function() {
 });
 
 
+function showModal(){
+	$("#shredder").click();
+	$('#myModal').modal();
+}
+

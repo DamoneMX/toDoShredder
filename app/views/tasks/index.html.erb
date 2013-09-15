@@ -11,7 +11,7 @@
 		  </tr>
 		
 		<% if @hours < 2 %>
-			<p>Display hours</p>
+			<script type="text/javascript">$(document).ready(function() { showModal(); });</script>
 		<% end %>
 		
 		<% @tasks.each do |task| %>
@@ -51,7 +51,7 @@
 	</div>
 </div>
 
-	<%= link_to 'Destroy', active_task_path(@tasks[0]), :method => :get, :remote=>true, :class=>'delete_post', :dataType => 'script' %>
+	<%= link_to 'Destroy', active_task_path(@tasks[0]), :method => :get, :remote=>true, :class=>'hidden', :id=>'shredder', :dataType => 'script' %>
 	
 
  <!-- Modal -->
@@ -66,7 +66,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
