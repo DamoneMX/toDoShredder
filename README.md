@@ -6,6 +6,21 @@ Rspec
 bcrypt
 simple-form
 
+Tests:
+Integration Testing: spec/requests/authentication_pages_spec.rb
+Tested the registration of a new user process, followed by user login and display of correct tasks.
+Tested primarily the login process as this is where most code was added
+
+Functional Testing: spec/controllers/tasks_controller_spec.rb
+Tested Tasks controller as this is the model that is used the most.
+
+Unit Testing: spec/model/user_model.rb
+Tested User model as it's the one with the most constraints.
+
+AJAX operation
+deletion of tasks is done by AJAX.
+one of my pages is loaded via AJAX.
+
 REST API
 - Tasks can be added via XML. 
 The following are examples of GET, POST, PUT and DELETE operations for tasks:

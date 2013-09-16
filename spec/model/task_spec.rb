@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   
+=begin
   before do
     #user = User.new(firstName: "Example User", email: "user@example.com", password: "testPass")
     #@task = user.tasks.build(name: "Sample", notes: "Special Reminder")
@@ -20,5 +21,5 @@ describe User do
     before { @micropost.user_id = nil }
     it { should_not be_valid }
   end
-  
+=end
 end

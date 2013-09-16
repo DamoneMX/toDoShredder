@@ -14,9 +14,19 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  #gem 'capybara', '2.1.0' > requires ruby 1.9.3
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '4.1.0'
 end
+
+#postGreSQL in Heroku, not sqlLite
+group :production do
+#  gem 'pg', '0.12.2'
+end
+
+#group :test do
+  #gem 'selenium-webdriver', '2.35.1'
+  #gem 'capybara', '2.1.0' > requires ruby 1.9.3
+#end
 
 # Gems used only for assets and not required
 # in production environments by default.

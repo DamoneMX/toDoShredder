@@ -61,6 +61,9 @@
 			  <% if flash[:notice] %>
 			    <p id="notice"><%= flash[:notice] %></p>
 			  <% end %>
+			   <% if flash[:error] %>
+			    <p id="notice"><%= flash[:error] %></p>
+			  <% end %>
 		</div>	
 		<div class="container">
 			<%= yield %>
